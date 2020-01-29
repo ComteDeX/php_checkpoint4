@@ -1,0 +1,14 @@
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    background-color: lightgray;
+    min-height: 100vh;
+}
+
+footer {
+    display: block;
+    bottom: 0;
+    height: 122px;
+    top:100vh;
+    position: sticky;
+}
