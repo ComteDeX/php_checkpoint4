@@ -1,7 +1,15 @@
-@import "~bootstrap/scss/bootstrap";
+@import "vars";
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-    background-color: lightgray;
+    //color: white;
+    background-color: white;
+    //background-image: url("/assets/images/frontpage.jpg");
+    background-position-x: center;
+    background-size: cover;
     min-height: 100vh;
 }
 
@@ -12,3 +20,14 @@ footer {
     top:100vh;
     position: sticky;
 }
+
+h1 {
+    font-size: 6em;
+    font-family: serif;
+}
+
+a {
+    //color: white !important;
+    font-weight: bold;
+}
+
