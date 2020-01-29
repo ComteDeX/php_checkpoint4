@@ -35,7 +35,7 @@ class Act
     private $artists;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Show", mappedBy="acts")
+     * @ORM\ManyToMany(targetEntity="Shows", mappedBy="acts")
      */
     private $shows;
 
@@ -101,14 +101,14 @@ class Act
     }
 
     /**
-     * @return Collection|Show[]
+     * @return Collection|Shows[]
      */
     public function getShows(): Collection
     {
         return $this->shows;
     }
 
-    public function addShow(Show $show): self
+    public function addShow(Shows $show): self
     {
         if (!$this->shows->contains($show)) {
             $this->shows[] = $show;
@@ -118,7 +118,7 @@ class Act
         return $this;
     }
 
-    public function removeShow(Show $show): self
+    public function removeShow(Shows $show): self
     {
         if ($this->shows->contains($show)) {
             $this->shows->removeElement($show);
