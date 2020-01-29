@@ -2,12 +2,6 @@ parameters:
     git_dir: .
     bin_dir: bin
     tasks:
-        phpstan:
-            autoload_file:
-                config
-                ./vendor/autoload.php
-            configuration: ./phpstan.neon
-            level: max
         phpmd:
             whitelist_patterns:
                 - 'src'
