@@ -2,8 +2,6 @@ parameters:
     git_dir: .
     bin_dir: bin
     tasks:
-        phpcs:
-            standard: ~
         phpstan:
             autoload_file:
                 config
