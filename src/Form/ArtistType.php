@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Artist;
+use App\Entity\Category;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,11 +15,17 @@ class ArtistType extends AbstractType
     {
         $options;
         $builder
-            ->add('name')
+            ->add('name', null, [
+                'label' => 'Nom de l’artiste',
+            ])
             ->add('photo')
             ->add('biography')
-            ->add('category')
-            ->add('acts')
+            ->add('category', EntityType::class, [
+                'class' => Category::class,
+                'label' => 'Catégorie',
+                'choice_label' => 'category',
+            ])
+//            ->add('acts')
         ;
     }
 

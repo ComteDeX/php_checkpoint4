@@ -20,7 +20,7 @@
             <tr>
                 <td>{{ artist.id }}</td>
                 <td>{{ artist.name }}</td>
-                <td>{{ artist.photo }}</td>
+                <td><img src="{{ artist.photo }}" alt="photo de {{ artist.name }}" class="img-thumbnail"></td>
                 <td>{{ artist.biography }}</td>
                 <td>
                     <a href="{{ path('artist_show', {'id': artist.id}) }}">show</a>
