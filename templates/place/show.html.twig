@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Place{% endblock %}
+
+{% block body %}
+    <h1>Place</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ place.id }}</td>
+            </tr>
+            <tr>
+                <th>DateEvent</th>
+                <td>{{ place.dateEvent ? place.dateEvent|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Address1</th>
+                <td>{{ place.address1 }}</td>
+            </tr>
+            <tr>
+                <th>Address2</th>
+                <td>{{ place.address2 }}</td>
+            </tr>
+            <tr>
+                <th>ZipCode</th>
+                <td>{{ place.zipCode }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ place.city }}</td>
+            </tr>
+            <tr>
+                <th>Lattitude</th>
+                <td>{{ place.lattitude }}</td>
+            </tr>
+            <tr>
+                <th>Longitude</th>
+                <td>{{ place.longitude }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('place_index') }}">back to list</a>
+
+    <a href="{{ path('place_edit', {'id': place.id}) }}">edit</a>
+
+    {{ include('place/_delete_form.html.twig') }}
+{% endblock %}
