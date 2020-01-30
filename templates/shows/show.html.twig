@@ -3,28 +3,50 @@
 {% block title %}Shows{% endblock %}
 
 {% block body %}
-    <h1>Shows</h1>
-
+    <div class="col-md-10 offset-md-1">
+    <h2 class="col-12 text-center">Spectacle du {{ show.dateShow|date('d/m') }} &ndash; {{ show.place[0].city }}</h2>
+    <h4 class="col-12 text-center">{{ show.dateShow|date('H') }}h{{ show.dateShow|date('i') }}</h4>
+    <div class="row">
+    <div class="column col-4 justify-content-between">
+            {% for act in show.acts %}
+                    <div class="card">
+                        <div class="card-title">
+                        {{ act.title }}
+                        </div>
+                    </div>
+            {% endfor %}
+    </div>
+    <div class="col-md-8">
     <table class="table">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Adultes</th>
+            <th>Enfants de moins de 12 ans</th>
+            <th>Groupes (10 personnes et plus)</th>
+            <th>Écoles</th>
+        </tr>
+        </thead>
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ show.id }}</td>
-            </tr>
-            <tr>
-                <th>DateShow</th>
-                <td>{{ show.dateShow ? show.dateShow|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>TarificationWeekEndRise</th>
-                <td>{{ show.tarificationWeekEndRise }}</td>
-            </tr>
+        <tr>
+            <th>Lundis, mardis, jeudis & vendredis</th>
+            <td>{{ show.tarification.adult|slice(0,2) }} €</td>
+            <td>{{ show.tarification.kid|slice(0,2) }} €</td>
+            <td>{{ show.tarification.groupPrice|slice(0,2) }} €</td>
+            <td>{{ show.tarification.school|slice(0,2) }} €</td>
+        </tr>
+        <tr>
+            <th>mercredis & week-ends</th>
+            <td>{{ show.tarification.adult + show.tarificationWeekEndRise }} €</td>
+            <td>{{ show.tarification.kid + show.tarificationWeekEndRise }} €</td>
+            <td>{{ show.tarification.groupPrice + show.tarificationWeekEndRise }} €</td>
+            <td>{{ show.tarification.school + show.tarificationWeekEndRise }} €</td>
+        </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('shows_index') }}">back to list</a>
-
-    <a href="{{ path('shows_edit', {'id': show.id}) }}">edit</a>
-
-    {{ include('shows/_delete_form.html.twig') }}
+        </div>
+        <div class="text-center col-12">
+    <a class="btn btn-success mt-4" href="{{ path('shows_index') }}">Retour à la liste des spectacles</a>
+    </div>
+    </div>
 {% endblock %}
