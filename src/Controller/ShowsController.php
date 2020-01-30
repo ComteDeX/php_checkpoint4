@@ -20,8 +20,18 @@ class ShowsController extends AbstractController
      */
     public function index(ShowRepository $showRepository): Response
     {
-        return $this->render('shows/index.html.twig', [
+        return $this->render('shows/user_index.html.twig', [
             'shows' => $showRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/", name="shows_user_index", methods={"GET"})
+     */
+    public function userIndex(ShowRepository $showRepository): Response
+    {
+        return $this->render('shows/index.html.twig', [
+            'shows' => $showRepository->allSortedByDate(),
         ]);
     }
 

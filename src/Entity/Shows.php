@@ -30,19 +30,25 @@ class Shows
     private $acts;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Tarification", mappedBy="shows")
+     * @ORM\Column(type="decimal", precision=5, scale=2)
+     */
+    private $tarificationWeekEndRise;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Tarification", inversedBy="shows")
      */
     private $tarification;
 
     /**
-     * @ORM\Column(type="decimal", precision=5, scale=2)
+     * @ORM\ManyToMany(targetEntity="App\Entity\Place", inversedBy="shows")
      */
-    private $tarificationWeekEndRise;
+    private $place;
 
     public function __construct()
     {
         $this->acts = new ArrayCollection();
         $this->tarification = new ArrayCollection();
+        $this->place = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -88,37 +94,6 @@ class Shows
         return $this;
     }
 
-    /**
-     * @return Collection|Tarification[]
-     */
-    public function getTarification(): Collection
-    {
-        return $this->tarification;
-    }
-
-    public function addTarification(Tarification $tarification): self
-    {
-        if (!$this->tarification->contains($tarification)) {
-            $this->tarification[] = $tarification;
-            $tarification->setShows($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTarification(Tarification $tarification): self
-    {
-        if ($this->tarification->contains($tarification)) {
-            $this->tarification->removeElement($tarification);
-            // set the owning side to null (unless already changed)
-            if ($tarification->getShows() === $this) {
-                $tarification->setShows(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getTarificationWeekEndRise(): ?string
     {
         return $this->tarificationWeekEndRise;
@@ -127,6 +102,44 @@ class Shows
     public function setTarificationWeekEndRise(string $tarificationWeekEndRise): self
     {
         $this->tarificationWeekEndRise = $tarificationWeekEndRise;
+
+        return $this;
+    }
+
+    public function getTarification(): ?Tarification
+    {
+        return $this->tarification;
+    }
+
+    public function setTarification(?Tarification $tarification): self
+    {
+        $this->tarification = $tarification;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Place[]
+     */
+    public function getPlace(): Collection
+    {
+        return $this->place;
+    }
+
+    public function addPlace(Place $place): self
+    {
+        if (!$this->place->contains($place)) {
+            $this->place[] = $place;
+        }
+
+        return $this;
+    }
+
+    public function removePlace(Place $place): self
+    {
+        if ($this->place->contains($place)) {
+            $this->place->removeElement($place);
+        }
 
         return $this;
     }

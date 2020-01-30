@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -37,9 +39,14 @@ class Tarification
     private $school;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Shows", inversedBy="tarification")
+     * @ORM\OneToMany(targetEntity="App\Entity\Shows", mappedBy="tarification")
      */
     private $shows;
+
+    public function __construct()
+    {
+        $this->shows = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -94,14 +101,33 @@ class Tarification
         return $this;
     }
 
-    public function getShows(): ?Shows
+    /**
+     * @return Collection|Shows[]
+     */
+    public function getShows(): Collection
     {
         return $this->shows;
     }
 
-    public function setShows(?Shows $shows): self
+    public function addShow(Shows $show): self
     {
-        $this->shows = $shows;
+        if (!$this->shows->contains($show)) {
+            $this->shows[] = $show;
+            $show->setTarification($this);
+        }
+
+        return $this;
+    }
+
+    public function removeShow(Shows $show): self
+    {
+        if ($this->shows->contains($show)) {
+            $this->shows->removeElement($show);
+            // set the owning side to null (unless already changed)
+            if ($show->getTarification() === $this) {
+                $show->setTarification(null);
+            }
+        }
 
         return $this;
     }

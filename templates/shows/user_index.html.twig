@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Shows index{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <h2 class="title">Nos prochains spectacles</h2>
+    <div class="row justify-content-between">
+    {% for show in shows %}
+        <div class="card col-md-3 col-sm-6 col-12 my-3">
+            <img class="card-img-top" src="https://picsum.photos/200" alt="Card image cap">
+            <div class="card-body">
+                <div class="row justify-content-between">
+                    <h5 class="card-title">{{ show.dateShow ? show.dateShow|date('d/m/Y') : '' }}</h5>
+                    <h5 class="card-title text-right">{{ show.dateShow ? show.dateShow|date('H:i') : '' }}</h5>
+                </div>
+
+                <h3 class="card-text text-center">{{ show.tarification.adult }} €</h3>
+                <p class="card-text text-right">{{ show.place[0].address1 }}<br/>
+                {% if show.place[0].address2 is not null %}
+                {{ show.place[0].address2 }}<br/>
+                {% endif %}
+                {{ show.place[0].zipCode }} {{ show.place[0].city }}</p>
+                <div class="text-center">
+                    <a href="#" class="btn btn-primary">Plus d’infos…</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+    </div>
+
+{% endblock %}
