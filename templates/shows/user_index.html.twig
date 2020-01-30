@@ -22,7 +22,7 @@
                 {% endif %}
                 {{ show.place[0].zipCode }} {{ show.place[0].city }}</p>
                 <div class="text-center">
-                    <a href="#" class="btn btn-primary">Plus d’infos…</a>
+                    <a href="{{ path('shows_show', {'id' : show.id }) }}" class="btn btn-primary">Plus d’infos…</a>
                 </div>
             </div>
         </div>

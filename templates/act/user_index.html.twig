@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Acts index{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <h2 class="title">Nos numéros</h2>
+    <div class="row justify-content-between">
+    {% for act in acts %}
+        <div class="card col-md-3 col-sm-6 col-12 my-3">
+            <img class="card-img-top" src="https://picsum.photos/200" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{ act.title }}</h5>
+
+                <h6 class="card-text text-center">catégorie : {{ act.category.category }}</h6>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+    </div>
+
+{% endblock %}

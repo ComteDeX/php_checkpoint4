@@ -20,7 +20,7 @@ class ActController extends AbstractController
      */
     public function index(ActRepository $actRepository): Response
     {
-        return $this->render('act/index.html.twig', [
+        return $this->render('act/user_index.html.twig', [
             'acts' => $actRepository->findAll(),
         ]);
     }
