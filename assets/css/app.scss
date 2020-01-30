@@ -22,8 +22,13 @@ footer {
 }
 
 h1 {
-    font-size: 6em;
+    font-size: 20vh;
     font-family: serif;
+    padding: 200px 0;
+}
+
+h2 {
+    text-align: center;
 }
 
 a {
@@ -31,3 +36,44 @@ a {
     font-weight: bold;
 }
 
+.prez {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+    margin: 20px 0;
+    >li {
+        margin: 0 10px;
+    }
+    >li:first-child {
+        margin: 0 10px 0 0;
+    }
+    >li:last-child {
+        margin: 0 0 0 10px;
+    }
+}
+
+.parallax {
+    /* The image used */
+    color: white;
+    background: url("https://picsum.photos/1000/600?grayscale");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    ///* Set a specific height */
+    //height: 80vh;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+}
+
+section {
+    padding: 30px 30px;
+    min-height: 300px;
+    &:nth-child(odd){
+        color: #313131;
+        background-color: white;
+    }
+}

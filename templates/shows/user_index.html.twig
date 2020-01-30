@@ -14,8 +14,10 @@
                     <h5 class="card-title">{{ show.dateShow ? show.dateShow|date('d/m/Y') : '' }}</h5>
                     <h5 class="card-title text-right">{{ show.dateShow ? show.dateShow|date('H:i') : '' }}</h5>
                 </div>
-
-                <h3 class="card-text text-center">{{ show.tarification.adult }} €</h3>
+                <div class="text-center">
+                    <h3 class="card-text text-center">{{ show.tarification.adult }} €</h3>
+                    <small class="text-center"><i>(à partir de)</i></small>
+                </div>
                 <p class="card-text text-right">{{ show.place[0].address1 }}<br/>
                 {% if show.place[0].address2 is not null %}
                 {{ show.place[0].address2 }}<br/>

@@ -3,22 +3,54 @@
 {% block title %}Bienvenue au Wild Circus{% endblock %}
 
 {% block body %}
-<div class="example-wrapper">
-    <h1 class="text-center my-5">WILD CIRCUS</h1>
-    <section id="spectacles">
-        <h2>Nos prochaines dates</h2>
+    <div class="parallax">
+        <h1 class="text-center my-5">WILD CIRCUS</h1>
+    </div>
+    <section id="performances"  class="sectionPerf">
+        <h2>Performances</h2>
+        <ul class="prez">
+            <li>
+                <h3 id="laugh">Laugh</h3>
+                <p class="perf">As an adult, come and discover our irresistible clowns, between practical jokes and pranks let yourself be carried away by their joy and fall back into childhood.</p>
+            </li>
+            <li>
+                <h3 id="dream">Dream</h3>
+                <p class="perf">Let yourself be carried away in a world where the real and the imaginary are one, in the company of our talented magicians, discover a wonderful world limited only by your imagination.</p>
+            </li>
+            <li>
+                <h3 id="marvel">Marvel at</h3>
+                <p class="perf">Tame the untameable in the company of our tamers, between roar and razor-sharp claws, watch these fierce felines turn into sweet kittens.</p>
+            </li>
+        </ul>
     </section>
-    <section id="numeros">
-        <h2>Nos numéros</h2>
-
+    <section id="numeros" class="parallax">
+        <h2>Notre histoire</h2>
+    <div>
+        Né en 1879 dans un vieux cirque canadien, Jacques Bertaux a grandi entre trapesists, clowns, dompteurs, chevaux, lions, éléphants. Vers 27 ans, il décide de créer son propre cirque : le Wild Circus, où se rencontrent étranges, mystérieux et amusants.
+        Depuis, ses fils et ses filles perpétuent la magie du cirque sauvage.
+        Francis, Emma, Olga et Emilio font partie de la 5e génération pour voyager à travers le monde et dépenser tous leurs efforts et énergie pour plaire aux enfants et aux adultes. Venez nous rejoindre au Wild Circus.
+    </div>
     </section>
     <section id="artists">
         <h2>Nos artistes</h2>
+        <ul class="prez">
+            <li>
+                <h3 id="laugh">Talentueux<br/>&nbsp;</h3>
+                <p class="perf"> Maecenas sollicitudin ante nulla. Pellentesque laoreet dui nec sodales maximus. Quisque non ornare sem. Praesent urna quam, imperdiet non imperdiet vehicula, iaculis nec sapien. Cras dapibus faucibus eros ac interdum. Donec fermentum sed nibh nec finibus. Duis bibendum purus eu turpis interdum varius. Maecenas faucibus, velit sed cursus cursus, dolor mauris dignissim nulla, in auctor felis libero ac nibh. </p>
+            </li>
+            <li>
+                <h3 id="dream">Surentraîné·e·s<br/>&nbsp;</h3>
+                <p class="perf"> Praesent quis libero eleifend, pretium risus eget, ultrices tortor. Pellentesque commodo gravida dapibus. Morbi viverra, libero eu congue blandit, mauris nibh accumsan felis, sed elementum ex sapien vitae nibh. Suspendisse potenti. Nunc a auctor risus. Vestibulum ac lacus enim. Pellentesque vestibulum iaculis nibh, eu tincidunt libero sagittis a. </p>
+            </li>
+            <li>
+                <h3 id="marvel">Gentils<br/><i>(mais faut pas les faire chier)</i></h3>
+                <p class="perf">Morbi pharetra quam ut dui mattis ultrices. Integer ut nunc finibus dui imperdiet suscipit. Etiam aliquam non neque gravida pellentesque. Nulla sit amet metus tellus. Ut arcu ligula, laoreet a turpis at, tincidunt aliquam dolor. Vestibulum risus felis, varius in finibus sed, feugiat molestie magna. Aenean pellentesque facilisis aliquam. Suspendisse quis elit nec erat scelerisque congue a ac diam. Sed arcu eros, vulputate eu lacus ac, porta hendrerit purus. </p>
+            </li>
+        </ul>
 
     </section>
     <section id="prices">
         <h2>Tarifs</h2>
 
     </section>
-</div>
 {% endblock %}
