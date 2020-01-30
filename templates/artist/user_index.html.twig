@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Artists index{% endblock %}
+
+{% block body %}
+    <div class="container justify-content-center">
+    <h2 class="title">Nos prochains spectacles</h2>
+    {% for artist in artists %}
+            <div class="col-12 my-2 row">
+                <div class="col-6" >
+                        <img class="col-12" src="{{ artist.photo }}" alt="Card image cap">
+                </div>
+                <div class="card-body col-6">
+                    <h3 class="card-title text-center">{{ artist.name }}</h3>
+                    <p class="card-title text-center">{{ artist.category.category }}</p>
+                    <p class="card-title text-left">{{ artist.biography }}</p>
+                </div>
+            </div>
+    {% endfor %}
+        <div class="col-12 text-center">
+            <a class="btn btn-success mb-5 mt-2" href="{{ path('home') }}">Retour à la page principale</a>
+        </div>
+    </div>
+
+{% endblock %}
