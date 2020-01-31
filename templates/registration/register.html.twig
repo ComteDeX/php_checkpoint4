@@ -1,15 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+<section id="prices" class="parallax">
+    <div class="col-md-6 offset-md-3 offset-md-1 col-sm-10 col-12 text-center py-4 my-4 formBox">
+        <h2 class="text-dark">Inscription</h2>
 
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+        {{ form_widget(registrationForm.email, {'attr': {'class' : 'col-8 my-2'} }) }}
+        {{ form_widget(registrationForm.plainPassword, {'attr': {'class' : 'col-8 my-2'} }) }}
+        {{ form_widget(registrationForm.address1, {'attr': {'class' : 'col-8 my-2'} }) }}
+        {{ form_widget(registrationForm.address2, {'attr': {'class' : 'col-8 my-2'} }) }}
+        {{ form_widget(registrationForm.zipCode, {'attr': {'class' : 'col-8 my-2'} }) }}
+        {{ form_widget(registrationForm.city, {'attr': {'class' : 'col-8 my-2', 'rows' : '7'} }) }}
+        {{ form_row(registrationForm.agreeTerms, {'attr': {'class' : 'col-8 my-2'} }) }}
 
-        <button class="btn">Register</button>
+        <button class="btn btn-dark">M'inscrire</button>
     {{ form_end(registrationForm) }}
+    </div>
+</section>
 {% endblock %}

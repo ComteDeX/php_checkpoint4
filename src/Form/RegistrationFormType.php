@@ -16,13 +16,18 @@ class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $options;
         $builder
             ->add('email')
             ->add('agreeTerms', CheckboxType::class, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Mot de passe'
+                ],
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'Vous devez accepter les conditions d’utilisation du site',
                     ]),
                 ],
             ])
@@ -41,11 +46,36 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Mot de passe'
+                ],
             ])
-            ->add('address1')
-            ->add('address2')
-            ->add('zipCode')
-            ->add('city')
+            ->add('address1', null, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Adresse'
+                ],
+            ])
+            ->add('address2', null,  [
+                'label' => false,
+                'required' => false,
+                'attr' => [
+                    'placeholder' => 'complément d’adresse (facultatif)'
+                ],
+            ])
+            ->add('zipCode', null,  [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Code postal'
+                ],
+            ])
+            ->add('city', null,  [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Ville'
+                ],
+            ])
         ;
     }
 
