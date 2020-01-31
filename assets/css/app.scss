@@ -1,13 +1,9 @@
-@import "vars";
-
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    //color: white;
     background-color: white;
-    //background-image: url("/assets/images/frontpage.jpg");
     background-position-x: center;
     background-size: cover;
     min-height: 100vh;
@@ -22,9 +18,9 @@ footer {
 }
 
 h1 {
-    font-size: 20vh;
+    font-size: 10vw;
     font-family: serif;
-    padding: 200px 0;
+    padding: 30vh 0;
 }
 
 h2 {
@@ -32,7 +28,6 @@ h2 {
 }
 
 a {
-    //color: white !important;
     font-weight: bold;
 }
 
@@ -55,17 +50,11 @@ a {
 }
 
 .parallax {
-    /* The image used */
     color: white;
     background: url("https://picsum.photos/1000/600?grayscale");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
-    ///* Set a specific height */
-    //height: 80vh;
-
-    /* Create the parallax scrolling effect */
     background-attachment: fixed;
 }
 
@@ -75,5 +64,17 @@ section {
     &:nth-child(odd){
         color: #313131;
         background-color: white;
+    }
+}
+
+.formBox {
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    background-color: #FFF6;
+}
+
+@media screen and (max-width: 492px) {
+    .prez {
+        flex-direction: column;
     }
 }

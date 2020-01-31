@@ -20,10 +20,10 @@ class ContactFormType extends AbstractType
                     'placeholder' => 'Votre nom'
                 ],
             ])
-            ->add('e-mail', EmailType::class, [
+            ->add('email', EmailType::class, [
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Votre email'
+                    'placeholder' => 'Votre e-mail'
                     ],
             ])
             ->add('object', null, [

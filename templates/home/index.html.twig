@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="parallax">
-        <h1 class="text-center my-5">WILD CIRCUS</h1>
+        <h1 class="text-center">WILD CIRCUS</h1>
     </div>
     <section id="performances"  class="sectionPerf">
         <h2>Performances</h2>
@@ -50,11 +50,14 @@
 
     </section>
     <section id="prices" class="parallax">
-        <div class="col-md-6 offset-md-3 offset-md-1 col-sm-10 col-12 text-center">
-            <h2>Contactez-nous !</h2>
+        <div class="col-md-6 offset-md-3 offset-md-1 col-sm-10 col-12 text-center py-4 my-4 formBox">
+            <h2 class="text-dark">Contactez-nous !</h2>
         {{ form_start(form) }}
-            {{ form_row(form) }}
-            <button class="btn btn-success" type="submit">Envoyer</button>
+            {{ form_widget(form.name, {'attr': {'class' : 'col-8 my-2'} }) }}
+            {{ form_row(form.email, {'attr': {'class' : 'col-8 my-2'} }) }}
+            {{ form_row(form.object, {'attr': {'class' : 'col-8 my-2'} }) }}
+            {{ form_row(form.message, {'attr': {'class' : 'col-8 my-2', 'rows' : '7'} }) }}
+            <button class="btn btn-dark" type="submit">Envoyer</button>
         {{ form_end(form) }}
         </div>
     </section>
